@@ -23,6 +23,8 @@
           [else (k-helper (+ c 3))])) ;; inductive step (+ c 3)
   (k-helper 2))
 
+(in-K↑? 0)
+(in-K↑? 1)
 (in-K↑? 2)
 (in-K↑? 3)
 (in-K↑? 8)
@@ -57,6 +59,7 @@
           [else (or (q-helper (+ c 2)) (q-helper (+ c 3)))]))
   (q-helper 1))
 
+(in-Q↑? 0)
 (in-Q↑? 1)
 (in-Q↑? 2)
 (in-Q↑? 3)
@@ -124,14 +127,14 @@
   (define (e-helper c)
     (cond [(or  (> (car c) (car p)) (> (cdr c) (cdr p))) #f]
           [(and (= (car c) (car p)) (= (cdr c) (cdr p))) #t]
-          [else (in-E↑? (cons (+ (car c) 1) (+ (cdr c) (* 2 (car c)) 1)))]))
+          [else (e-helper (cons (+ (car c) 1) (+ (cdr c) (* 2 (car c)) 1)))]))
   (e-helper (cons 0 0)))
 
-(in-E↓? (cons 0 0))
-(in-E↓? (cons 1 0))
-(in-E↓? (cons 1 1))
-(in-E↓? (cons 2 3))
-(in-E↓? (cons 2 4))
-(in-E↓? (cons 3 9))
-(in-E↓? (cons 4 16))
-(in-E↓? (cons 5 25))
+(in-E↑? (cons 0 0))
+(in-E↑? (cons 1 0))
+(in-E↑? (cons 1 1))
+(in-E↑? (cons 2 3))
+(in-E↑? (cons 2 4))
+(in-E↑? (cons 3 9))
+(in-E↑? (cons 4 16))
+(in-E↑? (cons 5 25))
