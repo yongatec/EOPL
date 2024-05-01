@@ -1,4 +1,9 @@
 #lang racket
+;; inductive specification
+;; It is ok for simple data
+;; But describing more complex data types become quite cumbersome.
+
+
 ;; K = {3n + 2 | n ∈ N} - comprehension form of a set!
 ;; K = {2,5,8,...} - list form of a set!
 ;; Let's write a inductive definition to check whether n is an element of this set K
@@ -102,9 +107,6 @@
 (displayln "=====================")
 ;;E = {(n, n^2) | n ∈ N}
 ;;E = {(0,0),(1,1), (2,4), ... }
-;; E = (m,k) is one of:
-;;  - (0,0)
-;;  - (m-1, k -2m + 1) 
 ;; Let's write a inductive definition to check whether n is an element of this set E
 
 (define (in-E↓? p)
