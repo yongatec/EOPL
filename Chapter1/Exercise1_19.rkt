@@ -10,9 +10,9 @@
 ;(define (list-set lst n x) lst)
 
 (define (list-set lst n x)
- (cond [(empty? lst) empty]
-       [(zero? n) (cons x (rest lst))]
-       [else (cons (first lst) (list-set (rest lst) (- n 1) x))]))
+  (cond [(empty? lst) empty]
+        [(zero? n) (cons x (rest lst))]
+        [else (cons (first lst) (list-set (rest lst) (- n 1) x))]))
 
 ;;2.Examples
 (check-equal? (list-set '(a b c d) 2 '(1 2))  '(a b (1 2) d))
